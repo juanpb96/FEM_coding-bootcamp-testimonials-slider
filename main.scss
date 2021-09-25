@@ -1,69 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
 @import './sass/helpers/variables';
 
-html {
-    font-family: 'Inter', Helvetica, sans-serif;
-    font-size: 32px;
-}
-
-body {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: $white;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: $white;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    width: 75%;
+    min-width: 285px;
+    max-width: 610px;
+    height: 10%;
+    min-height: 72px;
+    max-height: 150.94px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(./images/pattern-curve.svg) no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: none;
+    overflow: hidden;
 }
 
 .container {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .testimonials {
-    width: 90%;
+    margin-top: 1.5rem;
+    position: relative;
 }
 
 .testimonial {
-    width: 100%;
+    color: hsl(240, 38%, 20%);
+
+    &:not(:first-of-type) {
+        display: none;
+    } 
 
     &__banner {
-        background-image: url(./images/pattern-bg.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 80%;
+        min-width: 327px;
+        max-width: 811px;
+        max-height: 543px;
+        padding: 8.9% 0 7.3%;
+        margin: 0 auto 2rem;
+        background-image: url(./images/pattern-bg.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
     }
 
     &__photo {
-        width: 80%;
+        width: 75%;
+        min-width: 254px;
         max-width: 540px;
+        min-height: 253px;
         max-height: 540px;
-        border-radius: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 40px 50px -30px rgba(36, 36, 113, 0.495001);
+    }
+
+    &__quote-container {
+        width: 83%;
+        margin: 0 auto;
+        padding-top: 1.5625rem;
+        background: url(./images/pattern-quotes.svg) no-repeat center top;
+        background-size: 19%;
+        text-align: center;
+    }
+
+    &__quote {
+        margin-bottom: 1.1875rem;
+        font: 300 clamp(1.125rem, 2vw, 2rem)/1.5rem $f-family;
+    }
+
+    &__author, &__profession {
+        font: 700 clamp(0.9375rem, 1.5vw, 1.25rem)/1.25rem $f-family;
+    }
+
+    &__profession {
+        font-weight: 500;
+        color: $grayish-blue;
     }
 }
 
 .button {
-    width: 3rem;
-    height: 1.5rem;
+    width: 5rem;
+    height: 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 15px 20px -10px rgba(36, 36, 113, 0.0991313);
+    position: absolute;
+    top: calc(50% - 2.5rem / 2);
+    left: calc(50% - 5rem / 2);;
 
     &__btn {
         width: 50%;
         height: 100%;
         background-color: $white;
         border: none;
+        position: relative;
+        padding: 0;
+
+        &--prev, &--next {
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                width: 8px;
+                height: 14px;
+                position: absolute;
+                top: calc(50% - 7px);
+                left: calc(50% - 4.5px);
+                background-size: cover;
+            }
+        }
 
         &--prev {
             border-radius: 50% 0 0 50%;
+
+            &::before {
+                background-image: url(./images/icon-prev.svg);
+            }
         }
 
         &--next {
             border-radius: 0 50% 50% 0;
+
+            &::before {
+                background-image: url(./images/icon-next.svg);
+            }
         }
     }
 }
@@ -77,6 +170,7 @@ body {
 .attribution { 
     font-size: 11px; 
     text-align: center; 
+    margin-top: 12%;
 
     a { 
         color: hsl(228, 45%, 44%); 
