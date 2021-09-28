@@ -14,6 +14,7 @@ html, body {
 body {
     background: $white;
     position: relative;
+    overflow: hidden;
 }
 
 body::after {
@@ -24,7 +25,7 @@ body::after {
     height: 10%;
     min-height: 72px;
     max-height: 150.94px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     background: url(./images/pattern-curve.svg) no-repeat;
@@ -56,7 +57,7 @@ body::after {
 .testimonial {
     color: hsl(240, 38%, 20%);
 
-    &:not(:first-of-type) {
+    &:not(.active) {
         display: none;
     } 
 
@@ -66,8 +67,8 @@ body::after {
         align-items: center;
         width: 80%;
         min-width: 327px;
-        max-width: 811px;
-        max-height: 543px;
+        max-width: 697px;
+        max-height: 657px;
         padding: 8.9% 0 7.3%;
         margin: 0 auto 2rem;
         background-image: url(./images/pattern-bg.svg);
@@ -88,6 +89,7 @@ body::after {
 
     &__quote-container {
         width: 83%;
+        max-width: 635px;
         margin: 0 auto;
         padding-top: 1.5625rem;
         background: url(./images/pattern-quotes.svg) no-repeat center top;
@@ -97,7 +99,7 @@ body::after {
 
     &__quote {
         margin-bottom: 1.1875rem;
-        font: 300 clamp(1.125rem, 2vw, 2rem)/1.5rem $f-family;
+        font: 300 clamp(1.125rem, 2.3vw, 2rem)/1.5rem $f-family;
     }
 
     &__author, &__profession {
@@ -119,7 +121,8 @@ body::after {
     box-shadow: 0px 15px 20px -10px rgba(36, 36, 113, 0.0991313);
     position: absolute;
     top: calc(50% - 2.5rem / 2);
-    left: calc(50% - 5rem / 2);;
+    left: calc(50% - 5rem / 2);
+    z-index: 1;
 
     &__btn {
         width: 50%;
@@ -161,18 +164,91 @@ body::after {
     }
 }
 
-
-
-
-// Remove btn highlight
-
-
 .attribution { 
-    font-size: 11px; 
     text-align: center; 
     margin-top: 12%;
+    font: 300 0.625rem/0.875rem $f-family;
 
     a { 
         color: hsl(228, 45%, 44%); 
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    body::after {
+        height: 20%;
+    }
+    
+    .button {
+        top: calc(70% - 2.5rem / 2);
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .testimonials {
+        margin-top: 3.473%;
+    }
+
+    .testimonial {
+        display: flex;
+        flex-direction: row-reverse;
+
+        &__banner {
+            padding: 63px 92px 54px 65px;
+            margin-bottom: 0;
+            position: relative;
+            z-index: -1;
+        }
+
+        &__photo {
+            width: 100%;
+        }
+
+        &__quote-container {
+            padding-top: 4rem;
+            position: relative;
+            top: 10.25rem;
+            left: 8.125rem;
+            text-align: left;
+            background-position-x: 18.7%;
+        }
+
+        &__quote {
+            line-height: 2.75rem;
+            margin-bottom: 2rem;
+        }
+
+        &__author, &__profession {
+            display: inline-block;
+        }
+
+        &__author {
+            margin-right: 0.625rem;
+        }
+    }
+
+    /* Hover States */
+
+    .button {
+        width: 7rem;
+        height: 3.5rem;
+        top: calc(92% - 3.5rem / 2);
+        left: 57%;
+
+        &__btn {
+            &--prev, &--next {
+                &::before {
+                    width: 10px;
+                    height: 16px;
+                    position: absolute;
+                    top: calc(50% - 8px);
+                    left: calc(50% - 5px);
+                }
+            }
+        }
+    }
+
+    .attribution {
+        margin-top: 8%;
     }
 }
