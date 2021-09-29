@@ -90,6 +90,7 @@ body::after {
     &__quote-container {
         width: 83%;
         max-width: 635px;
+        height: max-content;
         margin: 0 auto;
         padding-top: 1.5625rem;
         background: url(./images/pattern-quotes.svg) no-repeat center top;
@@ -227,8 +228,6 @@ body::after {
         }
     }
 
-    /* Hover States */
-
     .button {
         width: 7rem;
         height: 3.5rem;
@@ -237,6 +236,12 @@ body::after {
 
         &__btn {
             &--prev, &--next {
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #ecf0f1;
+                }
+
                 &::before {
                     width: 10px;
                     height: 16px;
@@ -250,5 +255,9 @@ body::after {
 
     .attribution {
         margin-top: 8%;
+        
+        a:hover {
+            color: $dark-blue;
+        }
     }
 }

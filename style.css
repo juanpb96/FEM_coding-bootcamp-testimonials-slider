@@ -85,6 +85,7 @@ body::after {
 .testimonial__quote-container {
   width: 83%;
   max-width: 635px;
+  height: max-content;
   margin: 0 auto;
   padding-top: 1.5625rem;
   background: url(./images/pattern-quotes.svg) no-repeat center top;
@@ -203,12 +204,17 @@ body::after {
     margin-right: 0.625rem;
   }
 
-  /* Hover States */
   .button {
     width: 7rem;
     height: 3.5rem;
     top: calc(92% - 3.5rem / 2);
     left: 57%;
+  }
+  .button__btn--prev, .button__btn--next {
+    transition: background-color 0.3s ease;
+  }
+  .button__btn--prev:hover, .button__btn--next:hover {
+    background-color: #ecf0f1;
   }
   .button__btn--prev::before, .button__btn--next::before {
     width: 10px;
@@ -220,6 +226,9 @@ body::after {
 
   .attribution {
     margin-top: 8%;
+  }
+  .attribution a:hover {
+    color: #202046;
   }
 }
 
