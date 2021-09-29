@@ -14,7 +14,7 @@ html, body {
 body {
     background: $white;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body::after {
