@@ -16,11 +16,10 @@ button.addEventListener('click', (e) => {
         if (e.target.id === 'btn--prev') {
             activeTestimonial = activeTestimonial - 1 < 0 ? testimonialList.length - 1 : activeTestimonial - 1;
             testimonialList[activeTestimonial][1].classList.add('animate__fadeInLeft');
-        } else {
+        } else if (e.target.id === 'btn--next') {
             activeTestimonial = activeTestimonial + 1 === testimonialList.length ? 0 : activeTestimonial + 1;
             testimonialList[activeTestimonial][1].classList.add('animate__fadeInRight');
         }
-
         testimonialList[activeTestimonial][1].classList.add('active');
     };
 });
